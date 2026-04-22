@@ -1,16 +1,15 @@
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Pipedrive.Runners.OpenApiClient.Tests;
 
-[Collection("Collection")]
-public sealed class PipedriveOpenApiClientRunnerTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public sealed class PipedriveOpenApiClientRunnerTests : HostedUnitTest
 {
-    public PipedriveOpenApiClientRunnerTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public PipedriveOpenApiClientRunnerTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
